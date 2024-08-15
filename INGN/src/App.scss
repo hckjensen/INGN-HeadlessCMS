@@ -1,0 +1,15 @@
+@use 'styles/variables' as vars;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: vars.$text-font;
+
+
+}
+
+body {
+    background-color: vars.$background-color;
+
+}

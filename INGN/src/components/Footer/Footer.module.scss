@@ -1,0 +1,18 @@
+@use "../../styles/variables" as vars;
+
+
+.footer {
+    background-color: white;
+    font-family: vars.$text-font;
+    margin-top: auto;
+
+
+
+    .contentWrapper {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 2rem;
+        gap: 2rem;
+    }
+}

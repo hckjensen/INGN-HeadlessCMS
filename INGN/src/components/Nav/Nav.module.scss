@@ -1,0 +1,56 @@
+@use "../../styles/variables" as vars;
+
+
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    height: 75px;
+    align-items: center;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.45);
+
+
+    h1 {
+        font-family: vars.$logo-font;
+        color: #C52525;
+        font-size: 48px;
+        font-weight: 400;
+    }
+
+    p {
+        font-family: vars.$logo-font;
+        color: #C52525;
+    }
+
+    ul {
+        display: flex;
+        list-style: none;
+        gap: 50px;
+
+        li:first-child {
+            border-left: 2px solid black;
+            padding-left: 50px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+            font-size: 24px;
+            border-right: 2px solid black;
+            padding-right: 50px;
+
+
+
+        }
+
+        a.active {
+
+            transform: scale(1.2);
+            color: #C52525;
+            text-transform: bold;
+            transition: transform 0.2s ease-in-out;
+        }
+
+
+    }
+}
