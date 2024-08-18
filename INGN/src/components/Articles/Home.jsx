@@ -10,7 +10,7 @@ const Home = () => {
 
     useEffect(() => {
         client.getEntries({
-            content_type: 'newsArticle' // Adjust content type based on your Contentful model
+            content_type: 'newsArticle'
         })
             .then((response) => {
                 setArticles(response.items);

@@ -4,21 +4,21 @@ import { useContentful } from '../../Context/Contentful';
 import ArticleList from '../Articles/ArticleList';
 import styles from './Articles.module.scss';
 
-function Articles() {
+const Articles = () => {
     const { category } = useParams();
     const client = useContentful();
     const [articles, setArticles] = useState([]);
-    const [loading, setLoading] = useState(true); // Add loading state
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         console.log(category);
 
         client.getEntries({
-            content_type: 'newsArticle', // Adjust content type based on your Contentful model
-            'fields.category': category // Filter articles based on category
+            content_type: 'newsArticle',
+            'fields.category': category
         })
             .then((response) => {
-                console.log('Response:', response); // Log the response to inspect the data
+                console.log('Response:', response);
                 if (response.items.length === 0) {
                     console.warn('No entries found for the given query.');
                 }
@@ -28,16 +28,16 @@ function Articles() {
                 console.error(error);
             })
             .finally(() => {
-                setLoading(false); // Set loading to false after fetching data
+                setLoading(false);
             });
     }, [category, client]);
 
     return (
         <div>
             {loading ? (
-                <p>Loading...</p> // Display loading message while fetching data
+                <p>Loading...</p>
             ) : articles.length === 0 ? (
-                <p className={styles.articleList}>No articles found for this category.</p> // Display message if no articles are found
+                <p className={styles.articleList}>No articles found for this category.</p>
             ) : (
                 <ArticleList articles={articles} />
             )}
